@@ -3,7 +3,6 @@
 
 package main
 
-import "fmt"
 
 /*
 func main() {
@@ -21,19 +20,25 @@ func newCard() string{
 // Array: Fixed Length list of things of same data type
 // Slice: An array that can grow or shrink, length is not fixed
 
-func main() {
-	cards := deck{"Ace of Hearts", newCard()}
-	cards = append(cards, "Five of Diamonds") //slice
+// func main() {
+// 	cards := deck{"Ace of Hearts", newCard()}
+// 	cards = append(cards, "Five of Diamonds") //slice
 
-	// iterating over elements
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+// 	// iterating over elements
+// 	cards.print()
 
-}
+// }
 
-func newCard() string {
-	return "Six of Spades"
-}
+// func newCard() string {
+// 	return "Six of Spades"
+// }
 
 // Go is not an OOP language so there are no classes
+
+// ========================================================================================
+
+func main() {
+	cards := newDeck()
+
+	cards.print()
+}
