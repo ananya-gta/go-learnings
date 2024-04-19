@@ -1,4 +1,5 @@
 // Note: files in the same package do not have to be imported into each other
+// Code to create and manipulate a deck of cards
 
 package main
 
@@ -21,7 +22,7 @@ func newCard() string{
 // Slice: An array that can grow or shrink, length is not fixed
 
 func main() {
-	cards := []string{"Ace of Hearts", newCard()}
+	cards := deck{"Ace of Hearts", newCard()}
 	cards = append(cards, "Five of Diamonds") //slice
 
 	// iterating over elements
@@ -33,5 +34,6 @@ func main() {
 
 func newCard() string {
 	return "Six of Spades"
-
 }
+
+// Go is not an OOP language so there are no classes
