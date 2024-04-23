@@ -2,7 +2,11 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 // create  a new type of 'deck', (we have created our own type and named it 'deck')
 // which is a slice of strings
@@ -44,4 +48,16 @@ func (d deck) toString() string {
 
 func (d deck) saveToFile(filename string) error {
   return os.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+// err is a value of type error, if anything goes wrong there will be some error value, if not everything goe sright then err will have value "nil"
+
+func newDeckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error reading file: ", err)
+    os.Exit(1)
+	}
+  s := strings.Split(string(bs), ",")
+  return deck(s)
 }
