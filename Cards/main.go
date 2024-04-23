@@ -40,6 +40,7 @@ func newCard() string{
 package main
 import "fmt"
 
+
 func main() {
 	cards := newDeck()
 
@@ -55,4 +56,10 @@ func main() {
   fmt.Println(cards.toString())
 
   cards.saveToFile("MyCards")
+
+  newDeckFromFile("MyCards").print()
+
+  // error handling
+  newDeckFromFile("asdfgh").print()
 }
+
