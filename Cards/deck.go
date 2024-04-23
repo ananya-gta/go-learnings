@@ -28,3 +28,11 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+
+// return two separate values in a single function
+// here the function is returning two values each of type deck
+// syntax of a function is : func keyword then name of the function (arguments) return type o fthe function
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
