@@ -39,16 +39,20 @@ func newCard() string{
 
 package main
 import "fmt"
+
 func main() {
 	cards := newDeck()
 
-  fmt.Println("Deck of Cards: ")
+	fmt.Println("Deck of Cards: ")
 	cards.print()
 	hand, remainingCards := deal(cards, 5)
 
-  fmt.Println("Hand:")
+	fmt.Println("Hand:")
 	hand.print()
-  fmt.Println("Remaining Cards: ")
+	fmt.Println("Remaining Cards: ")
 	remainingCards.print()
-  cards.print()
+
+  fmt.Println(cards.toString())
+
+  cards.saveToFile("MyCards")
 }
