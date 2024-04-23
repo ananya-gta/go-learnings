@@ -1,7 +1,7 @@
 // Note: files in the same package do not have to be imported into each other
 // Code to create and manipulate a deck of cards
 
-package main
+// package main
 
 
 /*
@@ -37,8 +37,18 @@ func newCard() string{
 
 // ========================================================================================
 
+package main
+import "fmt"
 func main() {
 	cards := newDeck()
 
+  fmt.Println("Deck of Cards: ")
 	cards.print()
+	hand, remainingCards := deal(cards, 5)
+
+  fmt.Println("Hand:")
+	hand.print()
+  fmt.Println("Remaining Cards: ")
+	remainingCards.print()
+  cards.print()
 }
