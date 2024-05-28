@@ -1,0 +1,36 @@
+// printing a site status, if a site is down then return a messsage
+// Why use the `go` keyword when calling a function?
+// go starts a goroutine, which is managed by golang run-time.
+// It can either run on the current OS thread, or it can run on a different OS thread automatically.
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func checkLink(link string, c chan string) {
+  _, err := http.Get(link)
+  if err != nil {
+    fmt.Println("Link might be down")
+    c <- "Link might be down"
+    return
+  }
+  fmt.Println(link, "is Up!")
+c<-"up"
+}
+
+func main() {
+	links := []string{"https://www.google.com", "https://www.facebook.com", "https://www.youtube.com",}
+
+  c := make(chan string)
+  
+  for _, link := range links {
+    // create a new thread go routine and run this fucntion with it
+    go checkLink(link, c)
+  }
+  for i := 0;  i < len(links); i++ {
+    fmt.Println(<-c)
+  }
+	
+}
